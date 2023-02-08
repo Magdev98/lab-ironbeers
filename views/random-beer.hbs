@@ -1,0 +1,23 @@
+<section id='randombeerpage'>
+
+  {{#each responseFromAPI}}
+
+    <article class='imgrandombeer'>
+      <img src='{{this.image_url}}' alt='{{this.name}}' />
+    </article>
+
+    <article class='randombeerelement'>
+      <h2>{{this.name}}</h2>
+      <h3 id="tagline">{{this.tagline}}</h3>
+      <p>{{this.description}}</p>
+      <h4>Food Pairing</h4>
+      <ul> {{#each this.food_pairing}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ul>
+        <h4>Brewers tips:</h4>
+        <p>{{this.brewers_tips}}</p>
+    </article>
+
+  {{/each}}
+</asection>
