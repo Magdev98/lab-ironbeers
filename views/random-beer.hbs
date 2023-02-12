@@ -1,23 +1,12 @@
-<section id='randombeerpage'>
-
-  {{#each responseFromAPI}}
-
-    <article class='imgrandombeer'>
-      <img src='{{this.image_url}}' alt='{{this.name}}' />
-    </article>
-
-    <article class='randombeerelement'>
-      <h2>{{this.name}}</h2>
-      <h3 id="tagline">{{this.tagline}}</h3>
-      <p>{{this.description}}</p>
-      <h4>Food Pairing</h4>
-      <ul> {{#each this.food_pairing}}
-        <li>{{this}}</li>
-        {{/each}}
-      </ul>
-        <h4>Brewers tips:</h4>
-        <p>{{this.brewers_tips}}</p>
-    </article>
-
-  {{/each}}
-</asection>
+{{#each responseFromAPI}}
+{{> beerpartial this}}
+<div id="randombeer">
+    <h1 class="foodpairing">Food Pairing</h1>
+    {{#each this.food_pairing}}
+        <ul class="foodpairing">
+            <li>{{this}}</li>
+        </ul>
+    {{/each}}
+    <h1 class="brewerstips">Brewers Tips: {{this.brewers_tips}}</h1>
+</div>
+{{/each}}

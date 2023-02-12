@@ -33,6 +33,17 @@ app.get('/random-beer', (req, res) => {
   punkAPI
     .getRandom()
     .then(responseFromAPI => {
+      responseFromAPI[0].details = true;
+      res.render('random-beer', { responseFromAPI });
+    })
+    .catch(error => console.log(error));
+});
+
+app.get('/beers/beer-:id', (req, res) => {
+  const beerId = req.params.id;
+  punkAPI
+    .getBeer(beerId)
+    .then(responseFromAPI => {
       res.render('random-beer', { responseFromAPI });
     })
     .catch(error => console.log(error));

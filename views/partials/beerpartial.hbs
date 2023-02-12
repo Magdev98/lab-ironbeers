@@ -1,0 +1,8 @@
+<div id='displaybeer'>
+  <img class='beerimg' src='{{this.image_url}}' alt='{{this.name}}' />
+  <h1 class='beername'>{{this.name}}</h1>
+  <h1 class='beertagline'>{{this.tagline}}</h1>
+  <p class='beerdescription'>{{this.description}}</p>
+  <!-- The trick is to wrap an anchor tag around every beer that has the beer `id` in the `href` property -->
+  <a class='idbeer' href='/beers/beer-{{this.id}}'>{{this.name}}</a>
+</div>
